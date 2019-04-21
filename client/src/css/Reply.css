@@ -1,0 +1,125 @@
+div.reply-dialog-outer {
+    position:fixed;
+    top:0;
+    left:15vw;
+    height:100vh;
+    width:85vw;
+    margin:0;
+    padding:0;
+    z-index:1000;
+}
+  
+div.reply-dialog-inner {
+    position:relative;
+    margin:0;
+    height:100vh;
+    width:85vw;
+    padding:0;
+}
+  
+div.reply-dialog-backdrop {
+    position:absolute;
+    top:0;
+    left:0;
+    height:100vh;
+    width:85vw;
+    margin:0;
+    background:rgba(116, 116, 156, 0.404);
+    animation:reply-fade-in .15s ease-in-out 1;
+    z-index:1500;
+}
+  
+@keyframes reply-fade-in {
+    0%{
+      background:none;
+    }
+    100%{
+      background:rgba(116, 116, 156, 0.404);
+    }
+}
+  
+div.reply-back-btn {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(calc(-150% - 25vw), -50%);
+    height:80px;
+    width:80px;
+    background:rgb(25, 26, 41);
+    margin:0;
+    padding:0;
+    border-radius:15px; 
+    animation:reply-btn-in .4s ease-in-out 1;
+    z-index:2000;
+    cursor:pointer;
+    transition:transform .2s ease-in-out;
+    -webkit-box-shadow: 0px 7px 46px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 46px -11px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 46px -11px rgba(0,0,0,0.75);
+}
+  
+div.reply-back-btn:hover {
+    transform:translate(calc(-150% - 25vw), calc(-50% - 10px));
+}
+  
+div.reply-back-btn-inner {
+    height:80px;
+    width:80px;
+    margin:0;
+    padding:0;
+}
+ 
+div.reply-back-btn-inner img {
+    height:40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+  
+@keyframes reply-btn-in {
+    0%{
+      transform:translate(calc(-150% - 25vw),-150vh)
+    }
+    100%{
+      transform:translate(calc(-150% - 25vw), -50%);
+    }
+}
+  
+div.reply-dialog {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    min-height:100px;
+    max-height:70vh;
+    overflow:hidden;
+    padding:0;
+    margin:0;
+    width:50vw;
+    background:rgba(37, 33, 46,0.95);
+    border-radius:10px;
+    animation:reply-in .4s ease-in-out 1;
+    z-index:2000;
+    -webkit-box-shadow: 0px 7px 46px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 46px -11px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 46px -11px rgba(0,0,0,0.75);
+}
+  
+div.reply-dialog-content {
+    width:50vw;
+    min-height:100px;
+    max-height:70vh;
+    overflow-y:scroll;
+    padding-right:18px;
+    box-sizing:content-box;
+}
+  
+@keyframes reply-in {
+    0%{
+      transform:translate(-50%,-150vh);
+    }
+    100%{
+      transform:translate(-50%,-50%);
+    }
+}

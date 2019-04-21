@@ -1,0 +1,362 @@
+[
+  {
+    "board": "3",
+    "title": "3DCG",
+    "ws": 1
+  },
+  {
+    "board": "a",
+    "title": "Anime & Manga",
+    "ws": 1
+  },
+  {
+    "board": "aco",
+    "title": "Adult Cartoons",
+    "ws": 0
+  },
+  {
+    "board": "adv",
+    "title": "Advice",
+    "ws": 1
+  },
+  {
+    "board": "an",
+    "title": "Animals & Nature",
+    "ws": 1
+  },
+  {
+    "board": "asp",
+    "title": "Alternative Sports & Wrestling",
+    "ws": 1
+  },
+  {
+    "board": "b",
+    "title": "Random",
+    "ws": 0
+  },
+  {
+    "board": "bant",
+    "title": "International/Random",
+    "ws": 0
+  },
+  {
+    "board": "biz",
+    "title": "Business & Finance",
+    "ws": 1
+  },
+  {
+    "board": "c",
+    "title": "Anime/Cute",
+    "ws": 1
+  },
+  {
+    "board": "cgl",
+    "title": "Cosplay & EGL",
+    "ws": 1
+  },
+  {
+    "board": "ck",
+    "title": "Food & Cooking",
+    "ws": 1
+  },
+  {
+    "board": "cm",
+    "title": "Cute/Male",
+    "ws": 1
+  },
+  {
+    "board": "co",
+    "title": "Comics & Cartoons",
+    "ws": 1
+  },
+  {
+    "board": "d",
+    "title": "Hentai/Alternative",
+    "ws": 0
+  },
+  {
+    "board": "diy",
+    "title": "Do It Yourself",
+    "ws": 1
+  },
+  {
+    "board": "e",
+    "title": "Ecchi",
+    "ws": 0
+  },
+  {
+    "board": "f",
+    "title": "Flash",
+    "ws": 0
+  },
+  {
+    "board": "fa",
+    "title": "Fashion",
+    "ws": 1
+  },
+  {
+    "board": "fit",
+    "title": "Fitness",
+    "ws": 1
+  },
+  {
+    "board": "g",
+    "title": "Technology",
+    "ws": 1
+  },
+  {
+    "board": "gd",
+    "title": "Graphic Design",
+    "ws": 1
+  },
+  {
+    "board": "gif",
+    "title": "Adult GIF",
+    "ws": 0
+  },
+  {
+    "board": "h",
+    "title": "Hentai",
+    "ws": 0
+  },
+  {
+    "board": "hc",
+    "title": "Hardcore",
+    "ws": 0
+  },
+  {
+    "board": "his",
+    "title": "History & Humanities",
+    "ws": 1
+  },
+  {
+    "board": "hm",
+    "title": "Handsome Men",
+    "ws": 0
+  },
+  {
+    "board": "hr",
+    "title": "High Resolution",
+    "ws": 0
+  },
+  {
+    "board": "i",
+    "title": "Oekaki",
+    "ws": 0
+  },
+  {
+    "board": "ic",
+    "title": "Artwork/Critique",
+    "ws": 0
+  },
+  {
+    "board": "int",
+    "title": "International",
+    "ws": 1
+  },
+  {
+    "board": "jp",
+    "title": "Otaku Culture",
+    "ws": 1
+  },
+  {
+    "board": "k",
+    "title": "Weapons",
+    "ws": 1
+  },
+  {
+    "board": "lgbt",
+    "title": "LGBT",
+    "ws": 1
+  },
+  {
+    "board": "lit",
+    "title": "Literature",
+    "ws": 1
+  },
+  {
+    "board": "m",
+    "title": "Mecha",
+    "ws": 1
+  },
+  {
+    "board": "mlp",
+    "title": "Pony",
+    "ws": 1
+  },
+  {
+    "board": "mu",
+    "title": "Music",
+    "ws": 1
+  },
+  {
+    "board": "n",
+    "title": "Transportation",
+    "ws": 1
+  },
+  {
+    "board": "news",
+    "title": "Current News",
+    "ws": 1
+  },
+  {
+    "board": "o",
+    "title": "Auto",
+    "ws": 1
+  },
+  {
+    "board": "out",
+    "title": "Outdoors",
+    "ws": 1
+  },
+  {
+    "board": "p",
+    "title": "Photography",
+    "ws": 1
+  },
+  {
+    "board": "po",
+    "title": "Papercraft & Origami",
+    "ws": 1
+  },
+  {
+    "board": "pol",
+    "title": "Politically Incorrect",
+    "ws": 0
+  },
+  {
+    "board": "qa",
+    "title": "Question & Answer",
+    "ws": 1
+  },
+  {
+    "board": "qst",
+    "title": "Quests",
+    "ws": 1
+  },
+  {
+    "board": "r",
+    "title": "Adult Requests",
+    "ws": 0
+  },
+  {
+    "board": "r9k",
+    "title": "ROBOT9001",
+    "ws": 0
+  },
+  {
+    "board": "s",
+    "title": "Sexy Beautiful Women",
+    "ws": 0
+  },
+  {
+    "board": "s4s",
+    "title": "Shit 4chan Says",
+    "ws": 0
+  },
+  {
+    "board": "sci",
+    "title": "Science & Math",
+    "ws": 1
+  },
+  {
+    "board": "soc",
+    "title": "Cams & Meetups",
+    "ws": 0
+  },
+  {
+    "board": "sp",
+    "title": "Sports",
+    "ws": 1
+  },
+  {
+    "board": "t",
+    "title": "Torrents",
+    "ws": 0
+  },
+  {
+    "board": "tg",
+    "title": "Traditional Games",
+    "ws": 1
+  },
+  {
+    "board": "toy",
+    "title": "Toys",
+    "ws": 1
+  },
+  {
+    "board": "trash",
+    "title": "Off-Topic",
+    "ws": 0
+  },
+  {
+    "board": "trv",
+    "title": "Travel",
+    "ws": 1
+  },
+  {
+    "board": "tv",
+    "title": "Television & Film",
+    "ws": 1
+  },
+  {
+    "board": "u",
+    "title": "Yuri",
+    "ws": 0
+  },
+  {
+    "board": "v",
+    "title": "Video Games",
+    "ws": 1
+  },
+  {
+    "board": "vg",
+    "title": "Video Game Generals",
+    "ws": 1
+  },
+  {
+    "board": "vip",
+    "title": "Very Important Posts",
+    "ws": 1
+  },
+  {
+    "board": "vp",
+    "title": "Pokémon",
+    "ws": 1
+  },
+  {
+    "board": "vr",
+    "title": "Retro Games",
+    "ws": 1
+  },
+  {
+    "board": "w",
+    "title": "Anime/Wallpapers",
+    "ws": 1
+  },
+  {
+    "board": "wg",
+    "title": "Wallpapers/General",
+    "ws": 0
+  },
+  {
+    "board": "wsg",
+    "title": "Worksafe GIF",
+    "ws": 1
+  },
+  {
+    "board": "wsr",
+    "title": "Worksafe Requests",
+    "ws": 1
+  },
+  {
+    "board": "x",
+    "title": "Paranormal",
+    "ws": 1
+  },
+  {
+    "board": "y",
+    "title": "Yaoi",
+    "ws": 0
+  }
+]

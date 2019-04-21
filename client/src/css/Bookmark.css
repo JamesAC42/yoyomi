@@ -1,0 +1,132 @@
+div.bookmark {
+    position:absolute;
+    top:0;
+    right:0;
+    transform:translateY(-10px);
+    margin:40px;
+    border-radius:25px;
+    background:rgb(49, 49, 70);
+    cursor:pointer;
+    z-index:1000;
+    overflow:hidden;
+    -webkit-box-shadow: 0px 7px 52px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 52px -16px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 52px -16px rgba(0,0,0,0.75);
+}
+
+div.bookmark-inner {
+    margin:0;
+    padding:0;
+    height:80px;
+    width:80px;
+    border-radius:40;
+    position:relative;
+    transition:all .2s ease-in-out;
+}
+
+div.bookmark:hover div.bookmark-inner {
+    height:400px;
+    width:300px;
+}
+
+div.bookmark:hover img {
+    animation:spin .5s ease-in-out 1;
+}
+
+@keyframes spin {
+    0%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    80%{
+        transform: translate(-50%,-50%) rotate(430deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(365deg);
+    }
+}
+
+div.bookmark-btn {
+    position:absolute;
+    height:80px;
+    width:80px;
+    top:0;
+    right:0;
+    margin:0;
+    padding:0;
+}
+
+div.bookmark-btn-inner {
+    position:relative;
+    height:80px;
+    width:80px;
+}
+
+div.bookmark-btn-inner img {
+    position:absolute;
+    top:50%;
+    left:50%;
+    height:40px;
+    transform:translate(-50%,-50%);
+}
+
+div.bookmark-list {
+    position:absolute;
+    top:80px;
+    left:0;
+    padding:0;
+    margin:0;
+    overflow-x:hidden;
+    height:320px;
+    width:300px;
+    border-top:1px solid rgba(147, 165, 247, 0.7);
+}
+
+div.bookmark-list-inner {
+    position:relative;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    padding:0;
+    padding-right:17px;
+    width:300px;
+    height:320px;
+}
+
+div.bookmark-item {
+    position:relative;
+    width:300px;
+    height:50px;
+    margin:10px;
+    display:flex;
+    flex-direction:row;
+}
+
+div.bookmark-item-link {
+    flex-grow:1;
+    height:50px;
+    max-width:190px;
+    line-height:50px;
+    text-align:left;
+    font-size:14px;
+    padding-left:10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.bookmark-item-link a {
+    color:rgb(205, 201, 241);
+    text-decoration:none;
+}
+
+div.bookmark-item-link a:hover {
+    text-decoration:underline;
+}
+
+div.bookmark-item-remove {
+    width:100px;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+    font-size:16px;
+    color:rgb(255, 144, 144);
+}

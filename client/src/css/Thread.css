@@ -1,0 +1,154 @@
+div.thread-header {
+  box-sizing:border-box;
+  margin:20px;
+  margin-bottom:10px;
+  background:none;
+  padding:15px;
+  display:flex;
+  flex-direction:row;
+}
+
+div.back-btn a {
+  text-decoration:none;
+  font-size:16px;
+  max-width:100px;
+  color:#fff;
+}
+
+div.spacer {
+  content: "";
+  flex-grow:1;
+}
+
+div.save-thread {
+  font-size:16px;
+  color:#fff;
+  margin-right:30px;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid #fff;
+  transform:translateY(-25%);
+  cursor:pointer;
+}
+
+div.save-thread.saved {
+  color:rgb(30, 29, 53);
+  background:rgb(212, 208, 245);
+}
+
+div.thread-info {
+  max-width:100px;
+  color:rgb(160, 173, 223);
+}
+
+div.post {
+  box-sizing: border-box;
+  margin:10px;
+  background:rgba(33, 35, 48, 0.9);
+  border-radius:5px;
+  padding:15px;
+  font-size:14px;
+}
+
+div.post.op {
+  background:rgba(52, 56, 83, 0.9);
+}
+
+div.post-reply {
+  background:none;
+}
+
+div.header, div.comment, div.aux-info-container {
+  margin:10px;
+}
+
+div.header {
+  color:rgb(102, 96, 194);
+}
+
+div.post.op div.header {
+  color:rgb(154, 154, 212);
+}
+
+span.subject {
+  font-weight:bold;
+  color:rgb(255, 255, 255);
+}
+
+span.name {
+  font-weight:bold;
+}
+
+div.comment {
+  color:rgb(147, 165, 247);
+}
+
+div.post.op div.comment {
+  color:rgb(180, 200, 255);
+  color:rgb(219, 223, 253);
+}
+
+div.comment a {
+  text-decoration:none;
+  color:rgb(255, 96, 96);
+}
+
+div.post.op div.comment a {
+  color:rgb(134, 42, 42);
+}
+
+span.quote {
+  color:rgb(72, 241, 137);
+}
+
+div.aux-info-container {
+  height:20px;
+}
+
+div.reply-number, div.show-image {
+  display:block;
+  width:100px;
+  height:20px;
+  margin:0;
+  padding:0;
+  text-align:left;
+  float:left;
+  color:rgb(120, 123, 150);
+  cursor:pointer;
+}
+
+div.post.op div.reply-number, div.post.op div.show-image {
+  color:rgba(199, 200, 255, 0.692);
+}
+
+div.refresh-btn-outer {
+  position:relative;
+  box-sizing: border-box;
+  margin:10px;
+  background:none;
+  height:100px;
+}
+
+img.refresh-btn {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  height:50px;
+  cursor:pointer;
+  transition:opacity .2s ease-in-out;
+}
+
+@keyframes refresh-spin {
+  0%{
+    transform:translate(-50%,-50%) rotate(0deg);
+  }
+  100%{
+    transform:translate(-50%,-50%) rotate(360deg);
+  }
+}
+
+img.refresh-btn:hover {
+  opacity: 0.7;
+  animation: refresh-spin .4s ease-in-out 1;
+}

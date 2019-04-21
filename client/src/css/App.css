@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url("./Montserrat/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'KosugiMaru';
+  src: url("./Kosugi_Maru/KosugiMaru-Regular.ttf");
+}
+
+body {
+  overflow:hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+div.main-container {
+  position:absolute;
+  top:0;
+  right:0;
+  height:100vh;
+  width:85vw;
+  margin:0;
+  padding:0;
+}
+
+div.main-container-inner {
+  position:relative;
+  height:100vh;
+  width:85vw;
+  overflow-y:scroll;
+}
+
+div.content {
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translate(-50%, 5vh);
+  min-height:95vh;
+  margin:0;
+  width:65vw;
+  border-radius:10px;
+  background:rgba(42, 45, 66, 0.9);
+  -webkit-box-shadow: 0px 25px 56px -8px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 25px 56px -8px rgba(0,0,0,0.75);
+  box-shadow: 0px 25px 56px -8px rgba(0,0,0,0.75);
+}
+
+div.content-inner {
+  position:relative;
+}
+
+div.default-title {
+  position:absolute;
+  height:80px;
+  line-height:80px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, calc(-50% + 100px));
+  padding:5px 20px;
+  text-align:center;
+  font-size:70px;
+  background:rgb(35, 38, 59);
+  border-radius:10px;
+  font-family:'KosugiMaru', sans-serif;
+  color:rgb(114, 122, 212);
+}
+
+div.default-outer {
+  height:290px;
+  width:290px;
+  border-radius:50%;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-100%);
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background:rgba(255, 255, 255, 0.329);
+  -webkit-box-shadow: 0px 0px 101px -30px rgba(255,255,255,1);
+  -moz-box-shadow: 0px 0px 101px -30px rgba(255,255,255,1);
+  box-shadow: 0px 0px 101px -30px rgba(255,255,255,1);
+}
+
+div.default-inner {
+  height:290px;
+  width:290px;
+  position:relative;
+  margin:0;
+  padding:0;
+}
+
+div.default-inner img {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+  height:300px;
+}
+
+
+

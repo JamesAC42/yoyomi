@@ -18,7 +18,7 @@ export default class Catalog extends Component {
 
     loadCatalog(board){
         this.setState({board, loading:true, error:false});
-        fetch("/catalog", {
+        fetch("/api/yoyomi/catalog", {
             method: 'POST',
             body: JSON.stringify({
                 board

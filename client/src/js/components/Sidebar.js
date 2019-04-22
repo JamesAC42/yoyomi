@@ -36,7 +36,7 @@ class SidebarBind extends Component {
     }
 
     componentDidMount(){
-        fetch("/boards", {
+        fetch("/api/yoyomi/boards", {
             method: 'GET',
             headers:{
                 'Content-Type': 'application/json'

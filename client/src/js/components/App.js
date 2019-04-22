@@ -96,7 +96,7 @@ const mapAppDispatchToProps = {
 
 class AppBind extends Component {
   componentDidMount(){
-    fetch("/getBackground")
+    fetch("/api/yoyomi/getBackground")
     .then(res => res.json())
     .then(response => {
         this.props.setBackground(response.background);

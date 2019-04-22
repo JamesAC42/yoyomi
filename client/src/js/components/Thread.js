@@ -48,7 +48,7 @@ class ThreadBind extends Component {
         this.setState({ error: false });
 
         if(showLoading) this.setState({ loading: true })
-        fetch("/thread", {
+        fetch("/api/yoyomi/thread", {
             method: 'POST',
             body: JSON.stringify({
                 board,

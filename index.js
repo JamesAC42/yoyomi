@@ -7,19 +7,19 @@ const _PORT = 5000;
 
 const handler = (req, res) => {
     switch(req.url){
-        case "/boards":
+        case "/api/yoyomi/boards":
             returnBoards(req, res);
             break;
-        case "/catalog":
+        case "/api/yoyomi/catalog":
             returnCatalog(req, res);
             break;
-        case "/thread":
+        case "/api/yoyomi/thread":
             returnThread(req, res);
             break;
-        case "/image":
+        case "/api/yoyomi/image":
             returnImage(req, res);
             break;
-        case "/getBackground":
+        case "/api/yoyomi/getBackground":
             returnBackground(req, res);
             break;
         default:

@@ -121,7 +121,7 @@ class ImageViewerBind extends Component {
         this.setState({ error:false, loading:true })
         const image = this.props.images.activeImages[this.state.currentImage];
         if(this.props.images.imageCache[image.tim] === undefined){
-            fetch("/image", {
+            fetch("/api/yoyomi/image", {
                 method: 'POST',
                 body: JSON.stringify({
                     board:this.props.thread.board,

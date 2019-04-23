@@ -67,7 +67,7 @@ class BookmarkBind extends Component {
                 this.props.savedThreads.map((thread, index) => 
                   <div className="bookmark-item" key={index}>
                     <div className="bookmark-item-link">
-                      <Link title={thread.title} to={"/" + thread.board + "/thread/" + thread.no}>
+                      <Link title={thread.title} to={"/yoyomi/" + thread.board + "/thread/" + thread.no}>
                         {"/" + thread.board + "/ - " + thread.title}
                       </Link>
                     </div>
@@ -100,7 +100,7 @@ class AppBind extends Component {
     .then(res => res.json())
     .then(response => {
         this.props.setBackground(response.background);
-        document.body.style.background = "url(/bg/" + response.background + ")";
+        document.body.style.background = "url('/yoyomi/bg/" + response.background + "')";
         document.body.style.backgroundSize = "100vw auto";
     })
     .catch(error => this.setState({ error:true, loading:false }));
@@ -115,11 +115,11 @@ class AppBind extends Component {
             <Switch>
               <Route 
                 exact 
-                path="/board/:board" 
+                path="/yoyomi/board/:board" 
                 component={Catalog}/>
               <Route 
                 exact
-                path="/:board/thread/:thread"
+                path="/yoyomi/:board/thread/:thread"
                 component={Thread}/>
               <Route
                 component={Default}/>

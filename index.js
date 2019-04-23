@@ -7,19 +7,19 @@ const _PORT = 5000;
 
 const handler = (req, res) => {
     switch(req.url){
-        case "/api/yoyomi/boards":
+        case "/api/yoyomi/boards/":
             returnBoards(req, res);
             break;
-        case "/api/yoyomi/catalog":
+        case "/api/yoyomi/catalog/":
             returnCatalog(req, res);
             break;
-        case "/api/yoyomi/thread":
+        case "/api/yoyomi/thread/":
             returnThread(req, res);
             break;
-        case "/api/yoyomi/image":
+        case "/api/yoyomi/image/":
             returnImage(req, res);
             break;
-        case "/api/yoyomi/getBackground":
+        case "/api/yoyomi/getBackground/":
             returnBackground(req, res);
             break;
         default:
@@ -34,7 +34,6 @@ const returnBoards = (req, res) => {
 }
 
 const returnCatalog = (req, res) => {
-    
     const form = new formidable.IncomingForm();
     form.parse(req, (err, fields) => {
         const board = fields.board;

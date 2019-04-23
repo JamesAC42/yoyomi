@@ -48,7 +48,7 @@ class ThreadBind extends Component {
         this.setState({ error: false });
 
         if(showLoading) this.setState({ loading: true })
-        fetch("/api/yoyomi/thread", {
+        fetch("/api/yoyomi/thread/", {
             method: 'POST',
             body: JSON.stringify({
                 board,
@@ -151,7 +151,7 @@ class ThreadBind extends Component {
                     <div className="content">
                         <div className="thread-header">
                             <div className="back-btn">
-                                <Link to={"/board/" + this.props.thread.board}>
+                                <Link to={"/yoyomi/board/" + this.props.thread.board}>
                                     &#60;&#60;Back
                                 </Link>
                             </div>

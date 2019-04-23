@@ -18,10 +18,10 @@ export default class Catalog extends Component {
 
     loadCatalog(board){
         this.setState({board, loading:true, error:false});
-        fetch("/api/yoyomi/catalog", {
+        fetch("/api/yoyomi/catalog/", {
             method: 'POST',
             body: JSON.stringify({
-                board
+		board: this.props.match.params.board
             }),
             headers:{
                 'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ export default class Catalog extends Component {
                                 
                                 return(
                                     <div className={"thread " + color} key={index}>
-                                        <Link to={"/" + this.state.board + "/thread/" + thread.no}>
+                                        <Link to={"/yoyomi/" + this.state.board + "/thread/" + thread.no}>
                                             <div className="subject" dangerouslySetInnerHTML={
                                                 {"__html": thread.sub}
                                             }

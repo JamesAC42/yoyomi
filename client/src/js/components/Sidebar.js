@@ -15,7 +15,7 @@ class BoardItem extends Component {
         if(!this.props.board.ws && !this.props.shownsfw) return null;
         return(
             <li>
-                <Link to={"/board/" + this.props.board.board}>
+                <Link to={"/yoyomi/board/" + this.props.board.board}>
                     {this.props.board.title}
                 </Link>
             </li>   
@@ -57,7 +57,7 @@ class SidebarBind extends Component {
 
     render(){
         const style = {
-            backgroundImage: "url('/bg/" + this.state.background + "')" 
+            backgroundImage: "url('/yoyomi/bg/" + this.state.background + "')" 
         }
         return(
             <div className="sidebar">

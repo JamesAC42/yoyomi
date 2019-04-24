@@ -123,10 +123,8 @@ const returnThread = (req, res) => {
 const returnImage = (req, res) => {
     const form = new formidable.IncomingForm();
     form.parse(req, (err, fields) => {
-        const board = fields.board;
-        const tim = fields.tim;
-        const ext = fields.ext;
-        const url_string = "https://i.4cdn.org/" + board + "/" + tim + ext;
+        
+        const url_string = fields.url;
         
         axios.get(url_string, {
             responseType: 'arraybuffer'})

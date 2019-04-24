@@ -20,6 +20,13 @@ const mapDispatchToProps = {
 
 class AuxInfoContainerBind extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            thumbUrl: ""
+        }
+    }
+
     handleShowReplies(){
         if(this.props.replies.repliesVisible){
             this.updateReplies();
@@ -39,6 +46,25 @@ class AuxInfoContainerBind extends Component {
         newStack.push(this.props.post.no);
         const replies = this.props.post.replies;
         this.props.updateReplies(replies, newStack);
+    }
+
+    renderThumbnail(){
+        const url_string = "https://i.4cdn.org/" + this.props.board + "/" + this.props.post.tim + "s.jpg";
+        fetch("/api/yoyomi/image/", {
+            method: 'POST',
+            body: JSON.stringify({
+                url: url_string
+            }),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .then(response => {
+            const s = response.image;
+            const url = "data:image/png;base64," + s;
+            this.setState({ thumbUrl:url });
+        })
+        .catch(error => console.log(error));
     }
 
     showImages(){
@@ -100,8 +126,12 @@ class AuxInfoContainerBind extends Component {
                     this.props.hasImage &&
                     <div
                         className="show-image"
+                        onHover={() => this.renderThumbnail()}
                         onClick={() => this.showImages()}>
                         Show Image 
+                        <div className="image-thumbnail">
+                            <img url={this.state.thumbUrl} alt="thumbnail" />
+                        </div>
                     </div>
                 }
                     
@@ -140,7 +170,8 @@ export default class Post extends Component {
                             {"__html": this.props.post.com}
                         }>
                 </div>
-                <AuxInfoContainer 
+                <AuxInfoContainer
+                    board={this.props.board}
                     post={this.props.post}
                     index={this.props.index}
                     hasImage={this.props.post.tim !== undefined}/>

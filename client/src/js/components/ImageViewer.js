@@ -121,12 +121,11 @@ class ImageViewerBind extends Component {
         this.setState({ error:false, loading:true })
         const image = this.props.images.activeImages[this.state.currentImage];
         if(this.props.images.imageCache[image.tim] === undefined){
+            const url_string = "https://i.4cdn.org/" + this.props.thread.board + "/" + image.tim + image.ext;
             fetch("/api/yoyomi/image/", {
                 method: 'POST',
                 body: JSON.stringify({
-                    board:this.props.thread.board,
-                    tim:image.tim,
-                    ext:image.ext
+                    url: url_string
                 }),
                 headers:{
                     'Content-Type': 'application/json'

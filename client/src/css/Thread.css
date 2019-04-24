@@ -121,6 +121,26 @@ div.post.op div.reply-number, div.post.op div.show-image {
   color:rgba(199, 200, 255, 0.692);
 }
 
+div.image-thumbnail {
+  display:none;
+  position:absolute;
+  right: 0;
+  top: 50%;
+  transform:translate(200px, -50%);
+  margin:0;
+  padding:0;
+}
+
+div.image-thumbnail img {
+  max-width:150px;
+  max-height:150px;
+  margin:0;
+}
+
+div.show-image:hover div.image-thumbnail {
+  display:block;
+}
+
 div.refresh-btn-outer {
   position:relative;
   box-sizing: border-box;
@@ -150,5 +170,8 @@ img.refresh-btn {
 
 img.refresh-btn:hover {
   opacity: 0.7;
+}
+
+img.refresh-btn.refresh-spin {
   animation: refresh-spin .4s ease-in-out 1;
 }

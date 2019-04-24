@@ -53,6 +53,7 @@ class BookmarkBind extends Component {
   }
 
   render(){
+    if(this.props.savedThreads.length === 0) return null;
     return(
       <div className="bookmark">
         <div className="bookmark-inner">

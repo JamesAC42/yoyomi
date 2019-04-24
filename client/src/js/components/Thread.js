@@ -39,7 +39,8 @@ class ThreadBind extends Component {
         super(props);
         this.state = {
             loading: true,
-            error: false
+            error: false,
+            refreshDown: false
         }
     }
 
@@ -128,6 +129,10 @@ class ThreadBind extends Component {
         this.props.unsaveThread(index);
     }
 
+    toggleRefreshDown(){
+        this.setState({ refreshDown: !this.state.refreshDown });
+    }
+
     render(){
         if(this.state.loading){
             return <Loading />
@@ -174,6 +179,7 @@ class ThreadBind extends Component {
                                     key={index}
                                     index={index}
                                     post={post}
+                                    board={this.props.thread.board}
                                     isReply={false}/>
                             )
                         }
@@ -181,6 +187,8 @@ class ThreadBind extends Component {
                             <img 
                                 src={sync}
                                 alt="REFRESH" 
+                                onMouseDown={e => this.toggleRefreshDown()}
+                                onMouseUp={e => this.toggleRefreshDown()}
                                 onClick={
                                     () => this.loadThread(
                                         this.props.thread.board,
@@ -188,7 +196,7 @@ class ThreadBind extends Component {
                                         false
                                     )
                                 }
-                                className="refresh-btn"/>
+                                className={this.state.refreshDown ? "refresh-btn refresh-spin" : "refresh-btn"}/>
                         </div>
                     </div>
                 </div>

@@ -50,21 +50,21 @@ class AuxInfoContainerBind extends Component {
 
     renderThumbnail(){
         const url_string = "https://i.4cdn.org/" + this.props.board + "/" + this.props.post.tim + "s.jpg";
-	fetch("/api/yoyomi/image/", {
-            method: 'POST',
-            body: JSON.stringify({
-                url: url_string
-            }),
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json())
-        .then(response => {
-            const s = response.image;
-            const url = "data:image/png;base64," + s;
-            this.setState({ thumbUrl:url });
-        })
-        .catch(error => console.log(error));
+        fetch("/api/yoyomi/image/", {
+                method: 'POST',
+                body: JSON.stringify({
+                    url: url_string
+                }),
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
+            .then(response => {
+                const s = response.image;
+                const url = "data:image/png;base64," + s;
+                this.setState({ thumbUrl:url });
+            })
+            .catch(error => console.log(error));
     }
 
     showImages(){
@@ -128,7 +128,7 @@ class AuxInfoContainerBind extends Component {
                         className="show-image"
                         onMouseEnter={() => this.renderThumbnail()}
                         onClick={() => this.showImages()}>
-                        Show Image 
+                        Show {this.props.post.ext === ".webm" ? "Video" : "Image"}
                         <div className="image-thumbnail">
                             <img src={this.state.thumbUrl} alt="Thumbnail" />
                         </div>

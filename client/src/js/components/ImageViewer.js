@@ -74,23 +74,29 @@ class ImageContainer extends Component {
                 )
             }
             const image = this.props.image;
-            const filename = image.filename + image.ext;
-            const url = "https://i.4cdn.org/" + this.props.board + "/" + image.tim + image.ext;
-            return(
-                <div className="image-container">
-                    <div className="image-container-inner">
-                        <a 
-                            className="image-filename" 
-                            title={filename}
-                            href={"/yoyomi/" + this.props.board + "/thread/" + this.props.thread + "#p" + image.no}>
-                            {filename}
-                        </a>
-                        <a href={url} rel="noopener noreferrer" target="_blank">
-                            <img src={this.props.src} alt="view" />
-                        </a>
+            if(image.ext === ".webm"){
+                return(
+                    <video id="video-viewer" key={this.props.videoUrl} controls loop autoPlay muted> <source src={this.props.videoUrl} type="video/webm"/></video>
+                )
+            } else {
+                const filename = image.filename + image.ext;
+                const url = "https://i.4cdn.org/" + this.props.board + "/" + image.tim + image.ext;
+                return(
+                    <div className="image-container">
+                        <div className="image-container-inner">
+                            <a 
+                                className="image-filename" 
+                                title={filename}
+                                href={"/yoyomi/" + this.props.board + "/thread/" + this.props.thread + "#p" + image.no}>
+                                {filename}
+                            </a>
+                            <a href={url} rel="noopener noreferrer" target="_blank">
+                                <img src={this.props.src} alt="view" />
+                            </a>
+                        </div>
                     </div>
-                </div>
-            )
+                )
+            }
         }
     }
 }
@@ -101,6 +107,7 @@ class ImageViewerBind extends Component {
         super(props);
         this.state = {
             currentImage:this.props.images.imageIndexInit,
+            videoUrl: "",
             src: "",
             error:true,
             loading:false
@@ -120,29 +127,37 @@ class ImageViewerBind extends Component {
     renderImage(){
         this.setState({ error:false, loading:true })
         const image = this.props.images.activeImages[this.state.currentImage];
-        if(this.props.images.imageCache[image.tim] === undefined){
-            const url_string = "https://i.4cdn.org/" + this.props.thread.board + "/" + image.tim + image.ext;
-            fetch("/api/yoyomi/image/", {
-                method: 'POST',
-                body: JSON.stringify({
-                    url: url_string
-                }),
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => res.json())
-            .then(response => {
-                const s = response.image;
-                const url = "data:image/png;base64," + s;
-                this.props.updateCache(image.tim, url);
-                this.setState({ src:url, loading:false });
-            })
-            .catch(error => this.setState({ error:true, loading:false }));
-        } else {
+        if(image.ext === ".webm"){
+            const videoUrl = `/api/yoyomi/video?id=${image.tim}&board=${this.props.thread.board}`;
             this.setState({
-                src:this.props.images.imageCache[image.tim],
+                videoUrl,
                 loading:false
             });
+        } else {
+            if(this.props.images.imageCache[image.tim] === undefined){
+                const url_string = "https://i.4cdn.org/" + this.props.thread.board + "/" + image.tim + image.ext;
+                fetch("/api/yoyomi/image/", {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        url: url_string
+                    }),
+                    headers:{
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json())
+                .then(response => {
+                    const s = response.image;
+                    const url = "data:image/png;base64," + s;
+                    this.props.updateCache(image.tim, url);
+                    this.setState({ src:url, loading:false });
+                })
+                .catch(error => this.setState({ error:true, loading:false }));
+            } else {
+                this.setState({
+                    src:this.props.images.imageCache[image.tim],
+                    loading:false
+                });
+            }
         }
     }
 
@@ -168,6 +183,7 @@ class ImageViewerBind extends Component {
                         back={() => this.move(-1)}/>
                     <ImageContainer
                         src={this.state.src}
+                        videoUrl={this.state.videoUrl}
                         image={image}
                         thread={this.props.thread.thread}
                         board={this.props.thread.board}

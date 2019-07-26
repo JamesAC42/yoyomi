@@ -6,21 +6,31 @@ const fs = require('fs');
 const _PORT = 5000;
 
 const handler = (req, res) => {
-    switch(req.url){
+    const request_path = req.url.split("?")[0];
+    switch(request_path){
         case "/api/yoyomi/boards/":
+        case "/api/yoyomi/boards":
             returnBoards(req, res);
             break;
         case "/api/yoyomi/catalog/":
+        case "/api/yoyomi/catalog":
             returnCatalog(req, res);
             break;
         case "/api/yoyomi/thread/":
+        case "/api/yoyomi/thread":
             returnThread(req, res);
             break;
         case "/api/yoyomi/image/":
+        case "/api/yoyomi/image":
             returnImage(req, res);
             break;
         case "/api/yoyomi/getBackground/":
+        case "/api/yoyomi/getBackground":
             returnBackground(req, res);
+            break;
+        case "/api/yoyomi/video/":
+        case "/api/yoyomi/video":
+            returnVideo(req, res);
             break;
         default:
             res.end();
@@ -88,7 +98,7 @@ const returnThread = (req, res) => {
                         com:""
                     };
                     if(post.com) p.com = post.com;
-                    if(post.ext && (post.ext !== ".webm")) {
+                    if(post.ext) {
                         p.ext = post.ext;
                         p.tim = post.tim;
                         p.filename = post.filename;
@@ -139,6 +149,27 @@ const returnImage = (req, res) => {
                 res.end();
             });
     });
+}
+
+const returnVideo = (req, res) => {
+    const head = {
+        'Accept-Ranges': 'bytes',
+        'Content-Type': 'video/webm',
+    }
+    res.writeHead(206, head);
+    
+    const query = require('url').parse(req.url, true).query;
+    const vid_url = `http://i.4cdn.org/${query.board}/${query.id}.webm`;
+
+    axios.get(vid_url, {responseType: 'stream'})
+        .then((response) => {
+            response.data.pipe(res);
+        })
+        .catch(error => {
+            console.log(error);
+            res.writeHead(404);
+            res.end();
+        });
 }
 
 const returnBackground = (req, res) => {

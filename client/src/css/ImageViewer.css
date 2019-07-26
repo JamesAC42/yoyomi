@@ -130,7 +130,7 @@ div.image-nav-inner img {
     height:40px;
 }
 
-div.image-container {
+div.image-container, video#video-viewer {
     position:absolute;
     top:50%;
     left:50%;
@@ -172,7 +172,7 @@ a.image-filename {
     text-overflow: ellipsis;
 }
 
-div.image-container img{
+div.image-container img, video#video-viewer {
     margin:0;
     max-height:82vh;
     max-width:calc(60vw - 180px);

@@ -7,11 +7,14 @@
     "axios": "^0.18.0",
     "formidable": "^1.2.1",
     "fs": "0.0.1-security",
-    "http": "0.0.0"
+    "http": "0.0.0",
+    "url": "^0.11.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "cd client && npm start",
+    "server": "nodemon index.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",

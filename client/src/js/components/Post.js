@@ -50,7 +50,7 @@ class AuxInfoContainerBind extends Component {
 
     renderThumbnail(){
         const url_string = "https://i.4cdn.org/" + this.props.board + "/" + this.props.post.tim + "s.jpg";
-        fetch("/api/yoyomi/image/", {
+	fetch("/api/yoyomi/image/", {
             method: 'POST',
             body: JSON.stringify({
                 url: url_string
@@ -126,11 +126,11 @@ class AuxInfoContainerBind extends Component {
                     this.props.hasImage &&
                     <div
                         className="show-image"
-                        onHover={() => this.renderThumbnail()}
+                        onMouseEnter={() => this.renderThumbnail()}
                         onClick={() => this.showImages()}>
                         Show Image 
                         <div className="image-thumbnail">
-                            <img url={this.state.thumbUrl} alt="thumbnail" />
+                            <img src={this.state.thumbUrl} alt="Thumbnail" />
                         </div>
                     </div>
                 }

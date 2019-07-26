@@ -70,6 +70,7 @@ class ReplyDialogBind extends Component {
                                     <Post
                                         key={index}
                                         index={index}
+					board={this.props.thread.board}
                                         post={post}
                                         isReply={true}/>
                                 )

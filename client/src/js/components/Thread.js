@@ -130,7 +130,8 @@ class ThreadBind extends Component {
     }
 
     toggleRefreshDown(){
-        this.setState({ refreshDown: !this.state.refreshDown });
+        this.setState({ refreshDown: true });
+	setTimeout(() => { this.setState({ refreshDown: false }) }, 400);
     }
 
     render(){
@@ -188,7 +189,6 @@ class ThreadBind extends Component {
                                 src={sync}
                                 alt="REFRESH" 
                                 onMouseDown={e => this.toggleRefreshDown()}
-                                onMouseUp={e => this.toggleRefreshDown()}
                                 onClick={
                                     () => this.loadThread(
                                         this.props.thread.board,

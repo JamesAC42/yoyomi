@@ -29,9 +29,10 @@ div.save-thread {
   border:1px solid #fff;
   transform:translateY(-25%);
   cursor:pointer;
+  transition: all .2s ease-in-out;
 }
 
-div.save-thread.saved {
+div.save-thread.saved, div.save-thread:hover {
   color:rgb(30, 29, 53);
   background:rgb(212, 208, 245);
 }
@@ -107,6 +108,7 @@ div.aux-info-container {
 
 div.reply-number, div.show-image {
   display:block;
+  position:relative;
   width:100px;
   height:20px;
   margin:0;
@@ -126,7 +128,7 @@ div.image-thumbnail {
   position:absolute;
   right: 0;
   top: 50%;
-  transform:translate(200px, -50%);
+  transform:translate(calc(100% + 10px), -50%);
   margin:0;
   padding:0;
 }

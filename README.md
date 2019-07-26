@@ -9,6 +9,10 @@ a client for 4chan focused on readability
 
 does not yet support webms
 
+### 7/26/19
+
+- now with webms
+
 ![landing](screencap_landing.jpg)
 
 ![catalog](screencap_catalog.jpg)

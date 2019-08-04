@@ -95,6 +95,7 @@ div.image-nav {
     cursor:pointer;
     animation:image-nav-in .2s ease-in-out;
     transition:transform .2s ease-in-out;
+    border:1px solid rgb(67, 67, 102);
 }
 
 div.image-nav:hover {

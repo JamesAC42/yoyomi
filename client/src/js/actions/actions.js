@@ -26,8 +26,10 @@ export const repliesActions = createActions(
     {
         SHOW_REPLIES: (replies, post) => ({ replies, post }),
         UPDATE_REPLIES: (replies, stack) => ({ replies, stack }),
+        SHOW_REPLY_SOURCE: (source, position) => ({ source, position })
     },
-    'HIDE_REPLIES'
+    'HIDE_REPLIES',
+    'HIDE_REPLY_SOURCE'
 )
 
 export const imagesActions = createActions(

@@ -21,6 +21,8 @@ let initState = {
         repliesVisible:false,
         replies:[],
         replyStack: [],
+        replySourceVisible: false,
+        replySource: null
     },
     images: {
         imageViewerVisible: false,

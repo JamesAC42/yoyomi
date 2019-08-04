@@ -16,12 +16,27 @@ const replies = handleActions(
             ...state,
             replies: action.payload.replies,
             replyStack: action.payload.stack
+        }),
+        SHOW_REPLY_SOURCE: (state, action) => ({
+            ...state,
+            replySourceVisible: true,
+            replySource: action.payload.source,
+            replySourcePosition: action.payload.position
+        }),
+        HIDE_REPLY_SOURCE: (state) => ({
+            ...state,
+            replySourceVisible: false,
+            replySource: null,
+            replySourcePosition: {}
         })
     },
     {
         repliesVisible:false,
         replies:[],
         replyStack: [],
+        replySourceVisible: false,
+        replySource: null,
+        replySourcePosition: {}
     }
 )
 

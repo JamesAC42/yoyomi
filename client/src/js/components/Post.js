@@ -5,6 +5,7 @@ import {
     repliesActions,
     imagesActions
 } from '../actions/actions.js'
+import { linkSync } from 'fs';
 
 const mapStateToProps = (state, props) => ({
     thread: state.thread,
@@ -145,19 +146,84 @@ const AuxInfoContainer = connect(
     mapDispatchToProps
 )(AuxInfoContainerBind);
 
-export default class Post extends Component {
+const mapPostDispatchToProps = {
+    showReplySource: repliesActions.showReplySource,
+    hideReplySource: repliesActions.hideReplySource
+}
+
+class PostBind extends Component {
+
+    constructor(props){
+        super(props);
+        this.postRef = React.createRef();
+    }
+
+    updateReplySource(e){
+        const postNumber = e.target.innerHTML.split('&gt;')[2];
+        if(postNumber === ""){
+            return;
+        } else {
+            const rect = e.target.getBoundingClientRect();
+            const position = {
+                x: rect.right,
+                y: rect.top
+            }
+            this.props.showReplySource(postNumber, position);
+        }
+    }
+
+    bindShowReplySourceActions(){
+        const thisPost = document.getElementById("p" + this.props.post.no);
+        
+        const links = thisPost.getElementsByClassName("quotelink");
+        if(links.length){
+            for(let i = 0; i < links.length; i++){
+                const l = links[i];
+                l.addEventListener("mouseenter", this.updateReplySource.bind(this));
+
+                l.addEventListener("mouseleave", e => {
+                    this.props.hideReplySource();
+                });
+
+                l.addEventListener("click", e => {
+                    const postNumber = e.target.innerHTML.split('&gt;')[2];
+                    if(postNumber !== ""){
+                        document.getElementById("p" + postNumber).scrollIntoView();
+                    }
+                })
+            }
+        }
+
+        if(this.props.isReplySource){
+            const pos = this.props.position;
+            this.postRef.current.style.transform = `translate(${pos.x}px, calc(${pos.y}px - 100%)`;
+        }
+    }
+
+    componentDidUpdate(){
+        this.bindShowReplySourceActions();
+    }
+
+    componentDidMount(){
+        this.bindShowReplySourceActions();
+    }
 
     render(){
         let classes = "post";
-        if(this.props.isReply){
+        if(this.props.isReply && !this.props.isReplySource){
             classes += " post-reply";
         } else {
             if(this.props.index === 0) classes += " op";
         }
+        if(this.props.isReplySource){
+            classes += " reply-source"
+        }
+        const id = this.props.isReplySource ? "reply-source" : "p" + this.props.post.no;
         return(
             <div 
-                id={"p" + this.props.post.no} 
-                className={classes}>
+                id={id} 
+                className={classes}
+                ref={this.postRef}>
                 <div className="header">
                     <span className="subject" dangerouslySetInnerHTML={
                             {"__html": this.props.post.sub}
@@ -178,5 +244,11 @@ export default class Post extends Component {
             </div>
         )
     }
-
 }
+
+const Post = connect(
+    null,
+    mapPostDispatchToProps
+)(PostBind);
+
+export { Post as default }

@@ -33,6 +33,27 @@ const mapDispatchToProps = {
     clearCache: imagesActions.clearCache
 }
 
+class PostReply extends Component {
+    render(){
+        const replySource = this.props.replySource;
+        if(replySource === "") return;
+        const posts = this.props.posts;
+        let post;
+        for(let p in posts){
+            if(posts[p].no === parseInt(replySource))
+                post = posts[p];
+        }
+        return (
+            <Post 
+                index={1}
+                post={post}
+                isReplySource={true}
+                isReply={false} 
+                position={this.props.position}/>
+        )
+    }
+}
+
 class ThreadBind extends Component {
     
     constructor(props){
@@ -138,7 +159,7 @@ class ThreadBind extends Component {
         if(this.state.loading){
             return <Loading />
         } else {
-            if(this.state.error) return <Error />
+            if(this.state.error) return <Error board={this.props.thread.board}/>
 
             let images;
             if(this.props.thread.posts.length)
@@ -153,6 +174,13 @@ class ThreadBind extends Component {
                     {
                         this.props.replies.repliesVisible &&
                         <ReplyDialog /> 
+                    }
+                    {
+                        this.props.replies.replySourceVisible &&
+                        <PostReply 
+                            replySource={this.props.replies.replySource}
+                            posts={this.props.thread.posts} 
+                            position={this.props.replies.replySourcePosition}/>
                     }
                     <div className="content">
                         <div className="thread-header">

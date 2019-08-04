@@ -22,7 +22,7 @@ const mapDispatchToProps = {
 }
 
 class ReplyDialogBind extends Component {
-    
+
     moveUpReplies(){
         if(this.props.replies.replyStack.length < 2){
             this.props.hideReplies();
@@ -70,9 +70,10 @@ class ReplyDialogBind extends Component {
                                     <Post
                                         key={index}
                                         index={index}
-					board={this.props.thread.board}
+					                    board={this.props.thread.board}
                                         post={post}
-                                        isReply={true}/>
+                                        isReply={true}
+                                        isReplySource={false}/>
                                 )
                             }
                         </div>

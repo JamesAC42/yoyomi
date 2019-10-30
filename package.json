@@ -4,7 +4,7 @@
   "description": "a client for 4chan focused on readability",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "formidable": "^1.2.1",
     "fs": "0.0.1-security",
     "http": "0.0.0",

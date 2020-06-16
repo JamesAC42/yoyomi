@@ -1,6 +1,6 @@
 # yoyomi
 
-a client for 4chan focused on readability 
+a client for imageboards focused on readability 
 
 - view catalog and threads for every board
 - bookmark threads
